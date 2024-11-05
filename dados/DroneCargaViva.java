@@ -18,6 +18,12 @@ public class DroneCargaViva extends DroneCarga {
 	}
 
 	@Override
+	public double calcularCustoVariavel() {
+		if(isClimatizado()) return 20;
+		else return 10;
+	}
+
+	@Override
 	public double calculaCustoKm() {
 		return 0;
 	}

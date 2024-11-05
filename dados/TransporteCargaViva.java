@@ -28,6 +28,12 @@ public class TransporteCargaViva extends Transporte {
 	}
 
 	@Override
+	public double calcularAcrescimoVariavel() {
+		if(temperaturaMaxima - temperaturaMinima > 10) return 1000;
+		else return 0;
+	}
+
+	@Override
 	public double calculaCusto() {
 		return 0;
 	}

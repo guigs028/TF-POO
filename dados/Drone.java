@@ -38,4 +38,6 @@ public abstract class Drone {
 
 	public abstract double calculaCustoKm();
 
+	public abstract double calcularCustoVariavel();
+
 }

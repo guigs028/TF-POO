@@ -18,6 +18,12 @@ public class TransporteCargaInanimada extends Transporte {
 	}
 
 	@Override
+	public double calcularAcrescimoVariavel() {
+		if(isCargaPerigosa()) return 500;
+		else return 0;
+	}
+	
+	@Override
 	public double calculaCusto() {
 		return 0;
 	}

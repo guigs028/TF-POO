@@ -18,6 +18,11 @@ public class DronePessoal extends Drone {
 	}
 
 	@Override
+	public double calcularCustoVariavel() {
+		return qtdMaxPessoas*2;
+	}
+
+	@Override
 	public double calculaCustoKm() {
 		return 0;
 	}

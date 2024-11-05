@@ -18,6 +18,11 @@ public class TransportePessoal extends Transporte {
 	}
 
 	@Override
+	public double calcularAcrescimoVariavel() {
+		return qtdPessoas*10;
+	} 
+
+	@Override
 	public double calculaCusto() {
 		return 0;
 	}
