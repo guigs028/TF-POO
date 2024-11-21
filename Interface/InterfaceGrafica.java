@@ -1,6 +1,9 @@
 package Interface;
 
 import javax.swing.*;
+
+import Interface.CadastrarDrones.CadastrarDroneGUI;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,6 +43,10 @@ public class InterfaceGrafica extends JFrame {
 
         // Adiciona o painel principal à janela
         add(mainPanel, BorderLayout.CENTER);
+
+        cadastrarDroneButton.addActionListener(e -> {
+            new CadastrarDroneGUI();
+        });
 
         // Exibe a janela
         setVisible(true);
