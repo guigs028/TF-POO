@@ -3,10 +3,13 @@ package Interface;
 import javax.swing.*;
 
 import Interface.CadastrarDrones.CadastrarDroneGUI;
+import Interface.CadastrarTransportes.CadastrarTransporteGUI;
+import aplicacao.GerenciaTransportes;
+import dados.Estado;
+import dados.Transporte;
+import dados.TransporteCargaInanimada;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class InterfaceGrafica extends JFrame {
     
@@ -46,6 +49,14 @@ public class InterfaceGrafica extends JFrame {
 
         cadastrarDroneButton.addActionListener(e -> {
             new CadastrarDroneGUI();
+        });
+
+        cadastrarTransporteButton.addActionListener(e -> {
+            new CadastrarTransporteGUI();
+        });
+
+        processarTransportesButton.addActionListener(e -> {
+            GerenciaTransportes.processarTransportesPendentes();
         });
 
         // Exibe a janela
