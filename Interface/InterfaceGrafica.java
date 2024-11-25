@@ -2,8 +2,10 @@ package Interface;
 
 import javax.swing.*;
 
+import Interface.AlterarStatusTransporte.AlterarSituacaoTransporte;
 import Interface.CadastrarDrones.CadastrarDroneGUI;
 import Interface.CadastrarTransportes.CadastrarTransporteGUI;
+import Interface.MostrarDadosTransportes.MostrarTodosTransportesGUI;
 import aplicacao.ACMEAirDrones;
 import java.util.List;
 
@@ -68,6 +70,13 @@ public class InterfaceGrafica extends JFrame {
 
         processarTransportesButton.addActionListener(e -> {
             processarTransportesPendentes();
+        });
+
+        mostrarTransportesButton.addActionListener(e -> {
+            new MostrarTodosTransportesGUI(sistema).setVisible(true);
+        });
+        alterarSituacaoButton.addActionListener(e -> {
+            new AlterarSituacaoTransporte(sistema).setVisible(true);
         });
 
         // Exibe a janela

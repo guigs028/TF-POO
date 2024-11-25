@@ -55,6 +55,8 @@ public class ACMEAirDrones {
                 transporte.setSituacao(Estado.ALOCADO);
                 iterator.remove(); // Remover da fila de pendentes
                 dronesDisponiveis.remove(droneAdequado); // Remover drone da lista de disponíveis
+                //add da lista// 
+                transportesProcessados.add(transporte); // Adicionar à lista de processados
                 mensagens.add("Transporte " + transporte.getNumero() + " alocado ao drone " + droneAdequado.getCodigo());
             } else {
                 // Transporte sem drone adequado
@@ -83,4 +85,23 @@ public class ACMEAirDrones {
         }
         return null; // Retorna null se nenhum drone for adequado
     }
+
+    // codigos necessarios para as 2 telas //
+    public Transporte getTransportePorNumero(int numero) {
+        for (Transporte transporte : transportesPendentes) {
+            if (transporte.getNumero() == numero) {
+                return transporte;
+            }
+        }
+        return null;
+    }
+
+    private List<Transporte> transportesProcessados = new ArrayList<>();
+    
+    public List<Transporte> getTodosTransportes() {
+        List<Transporte> todosTransportes = new ArrayList<>(transportesPendentes);
+        todosTransportes.addAll(transportesProcessados);
+        return todosTransportes;
+    }
+
 }
