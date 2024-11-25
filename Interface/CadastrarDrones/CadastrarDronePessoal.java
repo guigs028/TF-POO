@@ -3,15 +3,18 @@ package Interface.CadastrarDrones;
 import dados.*;
 import javax.swing.*;
 
-import aplicacao.GerenciaDrones;
+import aplicacao.ACMEAirDrones;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CadastrarDronePessoal extends JFrame {
+    ACMEAirDrones sistema;
 
-    public CadastrarDronePessoal() {
+    public CadastrarDronePessoal(ACMEAirDrones sistema) {
+        this.sistema = sistema;
+
         setTitle("Cadastrar Drone Pessoal");
         setSize(400, 300);
         setLocationRelativeTo(null);
@@ -51,7 +54,7 @@ public class CadastrarDronePessoal extends JFrame {
                     // Aqui você cria o objeto DroneCargaInanimada
                     DronePessoal drone = new DronePessoal(codigo, custoFixo, autonomia, pessoasMax);
 
-                    if (GerenciaDrones.adicionarDrone(drone)) {
+                    if (sistema.adicionarDrone(drone)) {
                         JOptionPane.showMessageDialog(null, "Drone cadastrado com sucesso!");
                         dispose(); // Fecha a janela
                     } else {

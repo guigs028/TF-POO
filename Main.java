@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		ACMEAirDrones app = new ACMEAirDrones();
 		
-		SwingUtilities.invokeLater(() -> new InterfaceGrafica());
+		SwingUtilities.invokeLater(() -> new InterfaceGrafica(app));
 	}
 
 }

@@ -1,12 +1,16 @@
 package Interface.CadastrarTransportes;
 
 import dados.*;
-import aplicacao.GerenciaTransportes;
+import aplicacao.ACMEAirDrones;
 import javax.swing.*;
 import java.awt.*;
 
 public class CadastrarTransportePessoal extends JFrame {
-    public CadastrarTransportePessoal() {
+    ACMEAirDrones sistema;
+
+    public CadastrarTransportePessoal(ACMEAirDrones sistema) {
+        this.sistema = sistema;
+
         setTitle("Cadastrar Transporte - Pessoal");
         setSize(400, 300);
         setLocationRelativeTo(null);
@@ -44,7 +48,7 @@ public class CadastrarTransportePessoal extends JFrame {
                     numero, nomeCliente, descricao, peso, 0, 0, 0, 0, Estado.PENDENTE, qtdPessoas
                 );
 
-                if (GerenciaTransportes.adicionarTransporte(transporte)) {
+                if (sistema.adicionarTransporte(transporte)) {
                     JOptionPane.showMessageDialog(null, "Transporte cadastrado com sucesso!");
                     dispose();
                 } else {

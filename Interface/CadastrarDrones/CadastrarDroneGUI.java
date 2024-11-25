@@ -1,10 +1,18 @@
 package Interface.CadastrarDrones;
 
 import javax.swing.*;
+
+import aplicacao.ACMEAirDrones;
+
 import java.awt.*;
 
 public class CadastrarDroneGUI extends JFrame {
-    public CadastrarDroneGUI() {
+    private ACMEAirDrones sistema;
+
+
+    public CadastrarDroneGUI(ACMEAirDrones sistema) {
+        this.sistema = sistema;
+
         setTitle("Cadastrar Drone");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
@@ -33,13 +41,13 @@ public class CadastrarDroneGUI extends JFrame {
     private void abrirFormularioCadastro(String tipoDrone) {
         switch (tipoDrone) {
             case "Drone de Carga Inanimada":
-                new CadastrarDroneCargaInanimadaGUI().setVisible(true);
+                new CadastrarDroneCargaInanimada(sistema).setVisible(true);
                 break;
             case "Drone de Carga Viva":
-                new CadastrarDroneCargaViva().setVisible(true);
+                new CadastrarDroneCargaViva(sistema).setVisible(true);
                 break;
             case "Drone Pessoal":
-                JOptionPane.showMessageDialog(this, "Formulário para Drone Pessoal em desenvolvimento!");
+                new CadastrarDronePessoal(sistema).setVisible(true);
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "Tipo de drone não reconhecido!");

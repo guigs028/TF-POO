@@ -1,13 +1,17 @@
 package Interface.CadastrarTransportes;
 
 import dados.*;
-import aplicacao.GerenciaTransportes;
+import aplicacao.ACMEAirDrones;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class CadastrarTransporteCargaViva extends JFrame {
-    public CadastrarTransporteCargaViva() {
+    ACMEAirDrones sistema;
+
+    public CadastrarTransporteCargaViva(ACMEAirDrones sistema) {
+        this.sistema = sistema;
+
         setTitle("Cadastrar Transporte - Carga Viva");
         setSize(400, 400);
         setLocationRelativeTo(null);
@@ -49,7 +53,7 @@ public class CadastrarTransporteCargaViva extends JFrame {
                     numero, nomeCliente, descricao, peso, 0, 0, 0, 0, Estado.PENDENTE, temperaturaMinima, temperaturaMaxima
                 );
 
-                if (GerenciaTransportes.adicionarTransporte(transporte)) {
+                if (sistema.adicionarTransporte(transporte)) {
                     JOptionPane.showMessageDialog(null, "Transporte cadastrado com sucesso!");
                     dispose();
                 } else {

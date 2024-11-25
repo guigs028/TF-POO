@@ -1,10 +1,17 @@
 package Interface.CadastrarTransportes;
 
 import javax.swing.*;
+
+import aplicacao.ACMEAirDrones;
+
 import java.awt.*;
 
 public class CadastrarTransporteGUI extends JFrame {
-    public CadastrarTransporteGUI() {
+    private ACMEAirDrones sistema;
+
+    public CadastrarTransporteGUI(ACMEAirDrones sistema) {
+        this.sistema = sistema;
+
         setTitle("Cadastrar Transporte");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
@@ -33,13 +40,13 @@ public class CadastrarTransporteGUI extends JFrame {
     private void abrirFormularioCadastro(String tipoTransporte) {
         switch (tipoTransporte) {
             case "Transporte de Carga Inanimada":
-                new CadastrarTransporteCargaInanimada().setVisible(true);
+                new CadastrarTransporteCargaInanimada(sistema).setVisible(true);
                 break;
             case "Transporte de Carga Viva":
-                new CadastrarTransporteCargaViva().setVisible(true);
+                new CadastrarTransporteCargaViva(sistema).setVisible(true);
                 break;
             case "Transporte Pessoal":
-                JOptionPane.showMessageDialog(this, "Formulário para Transporte Pessoal em desenvolvimento!");
+                new CadastrarTransportePessoal(sistema).setVisible(true);
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "Tipo de transporte não reconhecido!");

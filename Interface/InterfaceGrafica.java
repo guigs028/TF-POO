@@ -4,16 +4,18 @@ import javax.swing.*;
 
 import Interface.CadastrarDrones.CadastrarDroneGUI;
 import Interface.CadastrarTransportes.CadastrarTransporteGUI;
-import aplicacao.GerenciaTransportes;
-import dados.Estado;
-import dados.Transporte;
-import dados.TransporteCargaInanimada;
+import aplicacao.ACMEAirDrones;
+import java.util.List;
 
 import java.awt.*;
 
 public class InterfaceGrafica extends JFrame {
+    private ACMEAirDrones sistema;
+    private JTextArea mensagemArea; 
     
-    public InterfaceGrafica() {
+    public InterfaceGrafica(ACMEAirDrones sistema) {
+        this.sistema = sistema;
+
         // Configurações da janela principal
         setTitle("Sistema de Gerenciamento ACMEAirDrones");
         setSize(500, 400);
@@ -44,22 +46,42 @@ public class InterfaceGrafica extends JFrame {
         mainPanel.add(carregarDadosButton);
         mainPanel.add(salvarDadosButton);
 
+         // Painel de mensagens
+         mensagemArea = new JTextArea();
+         mensagemArea.setEditable(false); // Impede edição
+         JScrollPane scrollPane = new JScrollPane(mensagemArea); // Permite rolagem
+         scrollPane.setPreferredSize(new Dimension(500, 200)); // Largura 500, Altura 200
+
+
         // Adiciona o painel principal à janela
+        setLayout(new BorderLayout());
         add(mainPanel, BorderLayout.CENTER);
+        add(scrollPane, BorderLayout.SOUTH);
 
         cadastrarDroneButton.addActionListener(e -> {
-            new CadastrarDroneGUI();
+            new CadastrarDroneGUI(sistema);
         });
 
         cadastrarTransporteButton.addActionListener(e -> {
-            new CadastrarTransporteGUI();
+            new CadastrarTransporteGUI(sistema);
         });
 
         processarTransportesButton.addActionListener(e -> {
-            GerenciaTransportes.processarTransportesPendentes();
+            processarTransportesPendentes();
         });
 
         // Exibe a janela
         setVisible(true);
+
+    }
+
+    private void processarTransportesPendentes() {
+        List<String> mensagens = sistema.processarTransportesPendentes();
+
+        // Exibe as mensagens na área de texto
+        mensagemArea.setText(""); // Limpa mensagens anteriores
+        for (String mensagem : mensagens) {
+            mensagemArea.append(mensagem + "\n");
+        }
     }
 }
