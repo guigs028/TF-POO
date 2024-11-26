@@ -5,7 +5,7 @@ import javax.swing.*;
 import Interface.AlterarStatusTransporte.AlterarSituacaoTransporte;
 import Interface.CadastrarDrones.CadastrarDroneGUI;
 import Interface.CadastrarTransportes.CadastrarTransporteGUI;
-import Interface.MostrarDadosTransportes.MostrarTodosTransportesGUI;
+import Interface.MostrarDadosTransportes.MostrarTodosTransportes;
 import aplicacao.ACMEAirDrones;
 import java.util.List;
 
@@ -73,10 +73,14 @@ public class InterfaceGrafica extends JFrame {
         });
 
         mostrarTransportesButton.addActionListener(e -> {
-            new MostrarTodosTransportesGUI(sistema).setVisible(true);
+            new MostrarTodosTransportes(sistema).setVisible(true);
         });
         alterarSituacaoButton.addActionListener(e -> {
             new AlterarSituacaoTransporte(sistema).setVisible(true);
+        });
+
+        mostrarRelatorioButton.addActionListener(e -> {
+            mostrarRelatorio();
         });
 
         // Exibe a janela
@@ -91,6 +95,15 @@ public class InterfaceGrafica extends JFrame {
         mensagemArea.setText(""); // Limpa mensagens anteriores
         for (String mensagem : mensagens) {
             mensagemArea.append(mensagem + "\n");
+        }
+    }
+
+    private void mostrarRelatorio() {
+        List<String> relatorio = sistema.gerarRelatorioGeral();
+
+        mensagemArea.setText("");
+        for (String string : relatorio) {
+            mensagemArea.append(string + "\n");
         }
     }
 }

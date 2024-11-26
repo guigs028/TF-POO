@@ -13,16 +13,20 @@ public class CadastrarTransporteCargaInanimada extends JFrame {
         this.sistema = sistema;
 
         setTitle("Cadastrar Transporte - Carga Inanimada");
-        setSize(400, 400);
+        setSize(400, 600); 
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        JPanel panel = new JPanel(new GridLayout(6, 2, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(10, 2, 10, 10)); 
 
         JTextField numeroField = new JTextField();
         JTextField nomeClienteField = new JTextField();
         JTextField descricaoField = new JTextField();
         JTextField pesoField = new JTextField();
+        JTextField latitudeOrigemField = new JTextField();  
+        JTextField longitudeOrigemField = new JTextField(); 
+        JTextField latitudeDestinoField = new JTextField();  
+        JTextField longitudeDestinoField = new JTextField(); 
         JCheckBox cargaPerigosaCheckbox = new JCheckBox("Carga Perigosa");
 
         panel.add(new JLabel("Número:"));
@@ -33,7 +37,15 @@ public class CadastrarTransporteCargaInanimada extends JFrame {
         panel.add(descricaoField);
         panel.add(new JLabel("Peso:"));
         panel.add(pesoField);
-        panel.add(new JLabel(""));
+        panel.add(new JLabel("Latitude Origem:"));  
+        panel.add(latitudeOrigemField);  
+        panel.add(new JLabel("Longitude Origem:")); 
+        panel.add(longitudeOrigemField);  
+        panel.add(new JLabel("Latitude Destino:"));  
+        panel.add(latitudeDestinoField); 
+        panel.add(new JLabel("Longitude Destino:"));
+        panel.add(longitudeDestinoField);  
+        panel.add(new JLabel(""));  
         panel.add(cargaPerigosaCheckbox);
 
         JButton salvarButton = new JButton("Salvar");
@@ -43,10 +55,14 @@ public class CadastrarTransporteCargaInanimada extends JFrame {
                 String nomeCliente = nomeClienteField.getText();
                 String descricao = descricaoField.getText();
                 double peso = Double.parseDouble(pesoField.getText());
+                double latitudeOrigem = Double.parseDouble(latitudeOrigemField.getText()); 
+                double longitudeOrigem = Double.parseDouble(longitudeOrigemField.getText());
+                double latitudeDestino = Double.parseDouble(latitudeDestinoField.getText());  
+                double longitudeDestino = Double.parseDouble(longitudeDestinoField.getText()); 
                 boolean cargaPerigosa = cargaPerigosaCheckbox.isSelected();
 
                 TransporteCargaInanimada transporte = new TransporteCargaInanimada(
-                    numero, nomeCliente, descricao, peso, 0, 0, 0, 0, Estado.PENDENTE, cargaPerigosa
+                    numero, nomeCliente, descricao, peso, latitudeOrigem, longitudeOrigem, latitudeDestino, longitudeDestino, Estado.PENDENTE, cargaPerigosa
                 );
 
                 if (sistema.adicionarTransporte(transporte)) {

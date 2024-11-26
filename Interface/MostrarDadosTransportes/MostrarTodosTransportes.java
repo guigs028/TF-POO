@@ -11,11 +11,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class MostrarTodosTransportesGUI extends JFrame {
+public class MostrarTodosTransportes extends JFrame {
     private ACMEAirDrones sistema;
     private JTextArea transportesArea;
 
-    public MostrarTodosTransportesGUI(ACMEAirDrones sistema) {
+    public MostrarTodosTransportes(ACMEAirDrones sistema) {
         this.sistema = sistema;
 
         setTitle("Mostrar Todos os Transportes");

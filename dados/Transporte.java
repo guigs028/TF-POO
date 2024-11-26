@@ -105,6 +105,29 @@ public abstract class Transporte {
 		this.drone = drone;
 	}
 
+	public double calcularDistancia() {
+		double deltaLatitude = latitudeDestino - latitudeOrigem;
+		double deltaLongitude = longitudeDestino - longitudeOrigem;
+		return Math.sqrt(Math.pow(deltaLatitude, 2) + Math.pow(deltaLongitude, 2));
+	}
+	
+
+		@Override
+	public String toString() {
+		return "Transporte =>" +
+			"número: " + numero +
+			", cliente: '" + nomeCliente + '\'' +
+			", descrição: '" + descricao + '\'' +
+			", peso: " + peso +
+			", latitudeOrigem: " + latitudeOrigem +
+			", longitudeOrigem: " + longitudeOrigem +
+			", latitudeDestino: " + latitudeDestino +
+			", longitudeDestino: " + longitudeDestino +
+			", situação: " + situacao +
+			", drone: " + (drone != null ? drone.getCodigo() : "Não alocado");
+	}
+
+
 	public abstract double calculaCusto();
 
 	public abstract double calcularAcrescimoVariavel();

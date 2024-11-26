@@ -7,6 +7,9 @@ public class ACMEAirDrones {
     private List<Drone> dronesDisponiveis = new ArrayList<>();
     private List<Transporte> transportesPendentes = new ArrayList<>();
     private Set<Integer> transportesNumeros = new HashSet<>();
+    private List<Transporte> todosTransportes = new ArrayList<>();
+    private List<Drone> todoDrones = new ArrayList<>();
+
 
     // -------- Métodos de Gerenciamento de Drones --------
     public boolean adicionarDrone(Drone drone) {
@@ -16,6 +19,7 @@ public class ACMEAirDrones {
             }
         }
         dronesDisponiveis.add(drone);
+        todoDrones.add(drone);
         ordenarDrones();
         return true;
     }
@@ -35,6 +39,7 @@ public class ACMEAirDrones {
         } else {
             transportesPendentes.add(transporte);
             transportesNumeros.add(transporte.getNumero());
+            todosTransportes.add(transporte);
             return true;
         }
     }
@@ -83,10 +88,9 @@ public class ACMEAirDrones {
                 return drone;
             }
         }
-        return null; // Retorna null se nenhum drone for adequado
+        return null; 
     }
 
-    // codigos necessarios para as 2 telas //
     public Transporte getTransportePorNumero(int numero) {
         for (Transporte transporte : transportesPendentes) {
             if (transporte.getNumero() == numero) {
@@ -104,4 +108,30 @@ public class ACMEAirDrones {
         return todosTransportes;
     }
 
+    public List<String> gerarRelatorioGeral() {
+        List<String> relatorio = new ArrayList<>();
+    
+        if (todoDrones.isEmpty() && transportesPendentes.isEmpty() && transportesProcessados.isEmpty()) {
+            relatorio.add("Não há dados cadastrados no sistema.");
+            return relatorio;
+        }
+    
+        relatorio.add("=== Relatório de Drones ===");
+        for (Drone drone : todoDrones) {
+            relatorio.add(drone.toString());
+        }
+    
+        relatorio.add("=== Relatório de Transportes Pendentes ===");
+        for (Transporte transporte : transportesPendentes) {
+            relatorio.add(transporte.toString());
+        }
+    
+        relatorio.add("=== Relatório de Transportes Processados ===");
+        for (Transporte transporte : transportesProcessados) {
+            relatorio.add(transporte.toString());
+        }
+    
+        return relatorio;
+    }
+    
 }

@@ -36,6 +36,14 @@ public abstract class Drone {
 		this.autonomia = autonomia;
 	}
 
+	@Override
+    public String toString() {
+        return "Drone =>" +
+               "código: " + codigo +
+               ", custo fixo: " + custoFixo +
+               ", autonomia: " + autonomia;
+    }
+
 	public abstract double calculaCustoKm();
 
 	public abstract double calcularCustoVariavel();

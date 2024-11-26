@@ -26,4 +26,12 @@ public class TransportePessoal extends Transporte {
 	public double calculaCusto() {
 		return 0;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + " Tipo: Transporte Pessoal" +
+		", qtd Pessoas: " + qtdPessoas +
+		"Acréscimo: " + calcularAcrescimoVariavel();
+	}
+
 }

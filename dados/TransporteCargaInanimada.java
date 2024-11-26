@@ -27,4 +27,11 @@ public class TransporteCargaInanimada extends Transporte {
 	public double calculaCusto() {
 		return 0;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + " Tipo: Transporte Carga Inanimada" +
+		", Acréscimo: " + calcularAcrescimoVariavel();
+	}
+
 }

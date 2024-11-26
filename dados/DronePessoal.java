@@ -26,4 +26,12 @@ public class DronePessoal extends Drone {
 	public double calculaCustoKm() {
 		return 0;
 	}
+
+	@Override
+    public String toString() {
+        return super.toString() + 
+               ", tipo: Pessoal" +
+			   ", qtdMaxdePessoas: " + getQtdMaxPessoas() +
+               ", custo Variavel: " + calcularCustoVariavel();
+    }
 }

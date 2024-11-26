@@ -13,11 +13,11 @@ public class CadastrarTransporteCargaViva extends JFrame {
         this.sistema = sistema;
 
         setTitle("Cadastrar Transporte - Carga Viva");
-        setSize(400, 400);
+        setSize(400, 600); 
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        JPanel panel = new JPanel(new GridLayout(7, 2, 10, 10));
+        JPanel panel = new JPanel(new GridLayout(11, 2, 10, 10)); 
 
         JTextField numeroField = new JTextField();
         JTextField nomeClienteField = new JTextField();
@@ -25,7 +25,12 @@ public class CadastrarTransporteCargaViva extends JFrame {
         JTextField pesoField = new JTextField();
         JTextField temperaturaMinField = new JTextField();
         JTextField temperaturaMaxField = new JTextField();
+        JTextField latitudeOrigemField = new JTextField();  
+        JTextField longitudeOrigemField = new JTextField(); 
+        JTextField latitudeDestinoField = new JTextField();  
+        JTextField longitudeDestinoField = new JTextField(); 
 
+        // Adicionando os componentes ao painel
         panel.add(new JLabel("Número:"));
         panel.add(numeroField);
         panel.add(new JLabel("Nome Cliente:"));
@@ -38,6 +43,14 @@ public class CadastrarTransporteCargaViva extends JFrame {
         panel.add(temperaturaMinField);
         panel.add(new JLabel("Temperatura Máxima:"));
         panel.add(temperaturaMaxField);
+        panel.add(new JLabel("Latitude Origem:"));  
+        panel.add(latitudeOrigemField);  
+        panel.add(new JLabel("Longitude Origem:")); 
+        panel.add(longitudeOrigemField);  
+        panel.add(new JLabel("Latitude Destino:"));  
+        panel.add(latitudeDestinoField);  
+        panel.add(new JLabel("Longitude Destino:"));
+        panel.add(longitudeDestinoField);  
 
         JButton salvarButton = new JButton("Salvar");
         salvarButton.addActionListener(e -> {
@@ -48,9 +61,13 @@ public class CadastrarTransporteCargaViva extends JFrame {
                 double peso = Double.parseDouble(pesoField.getText());
                 double temperaturaMinima = Double.parseDouble(temperaturaMinField.getText());
                 double temperaturaMaxima = Double.parseDouble(temperaturaMaxField.getText());
+                double latitudeOrigem = Double.parseDouble(latitudeOrigemField.getText()); 
+                double longitudeOrigem = Double.parseDouble(longitudeOrigemField.getText()); 
+                double latitudeDestino = Double.parseDouble(latitudeDestinoField.getText()); 
+                double longitudeDestino = Double.parseDouble(longitudeDestinoField.getText());
 
                 TransporteCargaViva transporte = new TransporteCargaViva(
-                    numero, nomeCliente, descricao, peso, 0, 0, 0, 0, Estado.PENDENTE, temperaturaMinima, temperaturaMaxima
+                    numero, nomeCliente, descricao, peso, latitudeOrigem, longitudeOrigem, latitudeDestino, longitudeDestino, Estado.PENDENTE, temperaturaMinima, temperaturaMaxima
                 );
 
                 if (sistema.adicionarTransporte(transporte)) {
