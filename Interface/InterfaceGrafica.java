@@ -6,6 +6,8 @@ import Interface.AlterarStatusTransporte.AlterarSituacaoTransporte;
 import Interface.CadastrarDrones.CadastrarDroneGUI;
 import Interface.CadastrarTransportes.CadastrarTransporteGUI;
 import Interface.MostrarDadosTransportes.MostrarTodosTransportes;
+import Interface.data.EscreveDados;
+import Interface.data.CarregaDados;
 import aplicacao.ACMEAirDrones;
 import java.util.List;
 
@@ -48,12 +50,11 @@ public class InterfaceGrafica extends JFrame {
         painelPrincipal.add(carregarDadosBotao);
         painelPrincipal.add(salvarDadosBotao);
 
-         // Painel de mensagens
-         mensagemArea = new JTextArea();
-         mensagemArea.setEditable(false); // Impede edição
-         JScrollPane scrollPane = new JScrollPane(mensagemArea); // Permite rolagem
-         scrollPane.setPreferredSize(new Dimension(500, 200)); // Largura 500, Altura 200
-
+        // Painel de mensagens
+        mensagemArea = new JTextArea();
+        mensagemArea.setEditable(false); // Impede edição
+        JScrollPane scrollPane = new JScrollPane(mensagemArea); // Permite rolagem
+        scrollPane.setPreferredSize(new Dimension(500, 50)); // Largura 500, Altura 50
 
         // Adiciona o painel principal à janela
         setLayout(new BorderLayout());
@@ -83,9 +84,16 @@ public class InterfaceGrafica extends JFrame {
             mostrarRelatorio();
         });
 
+        carregarDadosBotao.addActionListener(e -> {
+            new CarregaDados(sistema).carregarDados();
+        });
+
+        salvarDadosBotao.addActionListener(e -> {
+            new EscreveDados(sistema).salvarDados();
+        });
+
         // Exibe a janela
         setVisible(true);
-
     }
 
     private void processarTransportesPendentes() {
