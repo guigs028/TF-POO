@@ -25,28 +25,28 @@ public class InterfaceGrafica extends JFrame {
         setLocationRelativeTo(null);
 
         // Painel principal
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayout(4, 2, 10, 10));
+        JPanel painelPrincipal = new JPanel();
+        painelPrincipal.setLayout(new GridLayout(4, 2, 10, 10));
 
         // Botões de funcionalidades
-        JButton cadastrarDroneButton = new JButton("Cadastrar Drone");
-        JButton cadastrarTransporteButton = new JButton("Cadastrar Transporte");
-        JButton processarTransportesButton = new JButton("Processar Transportes Pendentes");
-        JButton mostrarRelatorioButton = new JButton("Mostrar Relatório Geral");
-        JButton mostrarTransportesButton = new JButton("Mostrar Todos os Transportes");
-        JButton alterarSituacaoButton = new JButton("Alterar Situação de Transporte");
-        JButton carregarDadosButton = new JButton("Carregar Dados");
-        JButton salvarDadosButton = new JButton("Salvar Dados");
+        JButton cadastrarDroneBotao = new JButton("Cadastrar Drone");
+        JButton cadastrarTransporteBotao = new JButton("Cadastrar Transporte");
+        JButton processarTransportesBotao = new JButton("Processar Transportes Pendentes");
+        JButton mostrarRelatorioBotao = new JButton("Mostrar Relatório Geral");
+        JButton mostrarTransportesBotao = new JButton("Mostrar Todos os Transportes");
+        JButton alterarSituacaoBotao = new JButton("Alterar Situação de Transporte");
+        JButton carregarDadosBotao = new JButton("Carregar Dados");
+        JButton salvarDadosBotao = new JButton("Salvar Dados");
 
         // Adicionando botões ao painel
-        mainPanel.add(cadastrarDroneButton);
-        mainPanel.add(cadastrarTransporteButton);
-        mainPanel.add(processarTransportesButton);
-        mainPanel.add(mostrarRelatorioButton);
-        mainPanel.add(mostrarTransportesButton);
-        mainPanel.add(alterarSituacaoButton);
-        mainPanel.add(carregarDadosButton);
-        mainPanel.add(salvarDadosButton);
+        painelPrincipal.add(cadastrarDroneBotao);
+        painelPrincipal.add(cadastrarTransporteBotao);
+        painelPrincipal.add(processarTransportesBotao);
+        painelPrincipal.add(mostrarRelatorioBotao);
+        painelPrincipal.add(mostrarTransportesBotao);
+        painelPrincipal.add(alterarSituacaoBotao);
+        painelPrincipal.add(carregarDadosBotao);
+        painelPrincipal.add(salvarDadosBotao);
 
          // Painel de mensagens
          mensagemArea = new JTextArea();
@@ -57,29 +57,29 @@ public class InterfaceGrafica extends JFrame {
 
         // Adiciona o painel principal à janela
         setLayout(new BorderLayout());
-        add(mainPanel, BorderLayout.CENTER);
+        add(painelPrincipal, BorderLayout.CENTER);
         add(scrollPane, BorderLayout.SOUTH);
 
-        cadastrarDroneButton.addActionListener(e -> {
+        cadastrarDroneBotao.addActionListener(e -> {
             new CadastrarDroneGUI(sistema);
         });
 
-        cadastrarTransporteButton.addActionListener(e -> {
+        cadastrarTransporteBotao.addActionListener(e -> {
             new CadastrarTransporteGUI(sistema);
         });
 
-        processarTransportesButton.addActionListener(e -> {
+        processarTransportesBotao.addActionListener(e -> {
             processarTransportesPendentes();
         });
 
-        mostrarTransportesButton.addActionListener(e -> {
+        mostrarTransportesBotao.addActionListener(e -> {
             new MostrarTodosTransportes(sistema).setVisible(true);
         });
-        alterarSituacaoButton.addActionListener(e -> {
+        alterarSituacaoBotao.addActionListener(e -> {
             new AlterarSituacaoTransporte(sistema).setVisible(true);
         });
 
-        mostrarRelatorioButton.addActionListener(e -> {
+        mostrarRelatorioBotao.addActionListener(e -> {
             mostrarRelatorio();
         });
 

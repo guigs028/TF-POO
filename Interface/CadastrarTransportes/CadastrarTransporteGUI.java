@@ -20,21 +20,21 @@ public class CadastrarTransporteGUI extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 1, 10, 10));
 
-        JButton transporteCargaInanimadaButton = new JButton("Transporte de Carga Inanimada");
-        JButton transporteCargaVivaButton = new JButton("Transporte de Carga Viva");
-        JButton transportePessoalButton = new JButton("Transporte Pessoal");
+        JButton transporteCargaInanimadaBotao = new JButton("Transporte de Carga Inanimada");
+        JButton transporteCargaVivaBotao = new JButton("Transporte de Carga Viva");
+        JButton transportePessoalBotao = new JButton("Transporte Pessoal");
 
-        panel.add(transporteCargaInanimadaButton);
-        panel.add(transporteCargaVivaButton);
-        panel.add(transportePessoalButton);
+        panel.add(transporteCargaInanimadaBotao);
+        panel.add(transporteCargaVivaBotao);
+        panel.add(transportePessoalBotao);
 
         add(panel, BorderLayout.CENTER);
 
         setVisible(true);
 
-        transporteCargaInanimadaButton.addActionListener(e -> abrirFormularioCadastro("Transporte de Carga Inanimada"));
-        transporteCargaVivaButton.addActionListener(e -> abrirFormularioCadastro("Transporte de Carga Viva"));
-        transportePessoalButton.addActionListener(e -> abrirFormularioCadastro("Transporte Pessoal"));
+        transporteCargaInanimadaBotao.addActionListener(e -> abrirFormularioCadastro("Transporte de Carga Inanimada"));
+        transporteCargaVivaBotao.addActionListener(e -> abrirFormularioCadastro("Transporte de Carga Viva"));
+        transportePessoalBotao.addActionListener(e -> abrirFormularioCadastro("Transporte Pessoal"));
     }
 
     private void abrirFormularioCadastro(String tipoTransporte) {

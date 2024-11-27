@@ -21,21 +21,21 @@ public class CadastrarDroneGUI extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 1, 10, 10));
 
-        JButton droneCargaInanimadaButton = new JButton("Drone de Carga Inanimada");
-        JButton droneCargaVivaButton = new JButton("Drone de Carga Viva");
-        JButton dronePessoalButton = new JButton("Drone Pessoal");
+        JButton droneCargaInanimadaBotao = new JButton("Drone de Carga Inanimada");
+        JButton droneCargaVivaBotao = new JButton("Drone de Carga Viva");
+        JButton dronePessoalBotao = new JButton("Drone Pessoal");
 
-        panel.add(droneCargaInanimadaButton);
-        panel.add(droneCargaVivaButton);
-        panel.add(dronePessoalButton);
+        panel.add(droneCargaInanimadaBotao);
+        panel.add(droneCargaVivaBotao);
+        panel.add(dronePessoalBotao);
 
         add(panel, BorderLayout.CENTER);
 
         setVisible(true);
 
-        droneCargaInanimadaButton.addActionListener(e -> abrirFormularioCadastro("Drone de Carga Inanimada"));
-        droneCargaVivaButton.addActionListener(e -> abrirFormularioCadastro("Drone de Carga Viva"));
-        dronePessoalButton.addActionListener(e -> abrirFormularioCadastro("Drone Pessoal"));
+        droneCargaInanimadaBotao.addActionListener(e -> abrirFormularioCadastro("Drone de Carga Inanimada"));
+        droneCargaVivaBotao.addActionListener(e -> abrirFormularioCadastro("Drone de Carga Viva"));
+        dronePessoalBotao.addActionListener(e -> abrirFormularioCadastro("Drone Pessoal"));
     }
 
     private void abrirFormularioCadastro(String tipoDrone) {

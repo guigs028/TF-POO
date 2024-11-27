@@ -27,12 +27,12 @@ public class MostrarTodosTransportes extends JFrame {
         transportesArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(transportesArea);
 
-        JButton fecharButton = new JButton("Fechar");
-        fecharButton.addActionListener(e -> dispose());
+        JButton fecharBotao = new JButton("Fechar");
+        fecharBotao.addActionListener(e -> dispose());
 
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(scrollPane, BorderLayout.CENTER);
-        panel.add(fecharButton, BorderLayout.SOUTH);
+        panel.add(fecharBotao, BorderLayout.SOUTH);
 
         add(panel);
 

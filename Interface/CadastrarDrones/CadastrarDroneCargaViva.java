@@ -20,18 +20,15 @@ public class CadastrarDroneCargaViva extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        // Painel principal
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 2, 10, 10));
 
-        // Campos de entrada
         JTextField codigoField = new JTextField();
         JTextField custoFixoField = new JTextField();
         JTextField autonomiaField = new JTextField();
         JTextField pesoMaximoField = new JTextField();
         JCheckBox climatizado = new JCheckBox("Climatizado");
 
-        // Adiciona os campos ao painel
         panel.add(new JLabel("Código:"));
         panel.add(codigoField);
         panel.add(new JLabel("Custo Fixo:"));
@@ -43,9 +40,8 @@ public class CadastrarDroneCargaViva extends JFrame {
         panel.add(new JLabel("Climatizado:"));
         panel.add(climatizado);
 
-        // Botão de salvar
-        JButton salvarButton = new JButton("Salvar");
-        salvarButton.addActionListener(new ActionListener() {
+        JButton salvarBotao = new JButton("Salvar");
+        salvarBotao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -73,7 +69,7 @@ public class CadastrarDroneCargaViva extends JFrame {
 
         // Layout da janela
         add(panel, BorderLayout.CENTER);
-        add(salvarButton, BorderLayout.SOUTH);
+        add(salvarBotao, BorderLayout.SOUTH);
     }
 }
 

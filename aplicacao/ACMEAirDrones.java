@@ -7,9 +7,9 @@ public class ACMEAirDrones {
     private List<Drone> dronesDisponiveis = new ArrayList<>();
     private List<Transporte> transportesPendentes = new ArrayList<>();
     private Set<Integer> transportesNumeros = new HashSet<>();
+    private List<Transporte> transportesProcessados = new ArrayList<>();
     private List<Transporte> todosTransportes = new ArrayList<>();
     private List<Drone> todoDrones = new ArrayList<>();
-
 
     // -------- Métodos de Gerenciamento de Drones --------
     public boolean adicionarDrone(Drone drone) {
@@ -44,6 +44,7 @@ public class ACMEAirDrones {
         }
     }
 
+    //Processa os Transportes Pendentes
     public List<String> processarTransportesPendentes() {
         Iterator<Transporte> iterator = transportesPendentes.iterator();
         List<String> mensagens = new ArrayList<>();
@@ -77,9 +78,9 @@ public class ACMEAirDrones {
         return mensagens;
     }    
 
+    //Método chamado no método processar transportes pendentes
     private Drone encontrarDroneAdequado(Transporte transporte) {
         for (Drone drone : dronesDisponiveis) {
-            // Verifica se o drone é compatível com o tipo de transporte
             if (drone instanceof DronePessoal && transporte instanceof TransportePessoal) {
                 return drone;
             } else if (drone instanceof DroneCargaInanimada && transporte instanceof TransporteCargaInanimada) {
@@ -99,8 +100,6 @@ public class ACMEAirDrones {
         }
         return null;
     }
-
-    private List<Transporte> transportesProcessados = new ArrayList<>();
     
     public List<Transporte> getTodosTransportes() {
         List<Transporte> todosTransportes = new ArrayList<>(transportesPendentes);
@@ -108,6 +107,7 @@ public class ACMEAirDrones {
         return todosTransportes;
     }
 
+    //Gerar Relatório
     public List<String> gerarRelatorioGeral() {
         List<String> relatorio = new ArrayList<>();
     
@@ -133,5 +133,4 @@ public class ACMEAirDrones {
     
         return relatorio;
     }
-    
 }

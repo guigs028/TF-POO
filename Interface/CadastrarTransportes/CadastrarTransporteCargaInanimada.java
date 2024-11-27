@@ -48,8 +48,8 @@ public class CadastrarTransporteCargaInanimada extends JFrame {
         panel.add(new JLabel(""));  
         panel.add(cargaPerigosaCheckbox);
 
-        JButton salvarButton = new JButton("Salvar");
-        salvarButton.addActionListener(e -> {
+        JButton salvarBotao = new JButton("Salvar");
+        salvarBotao.addActionListener(e -> {
             try {
                 int numero = Integer.parseInt(numeroField.getText());
                 String nomeCliente = nomeClienteField.getText();
@@ -77,6 +77,6 @@ public class CadastrarTransporteCargaInanimada extends JFrame {
         });
 
         add(panel, BorderLayout.CENTER);
-        add(salvarButton, BorderLayout.SOUTH);
+        add(salvarBotao, BorderLayout.SOUTH);
     }
 }

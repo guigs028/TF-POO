@@ -20,18 +20,15 @@ public class CadastrarDroneCargaInanimada extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        // Painel principal
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 2, 10, 10));
 
-        // Campos de entrada
         JTextField codigoField = new JTextField();
         JTextField custoFixoField = new JTextField();
         JTextField autonomiaField = new JTextField();
         JTextField pesoMaximoField = new JTextField();
         JCheckBox protecaoCheckBox = new JCheckBox("Proteção");
 
-        // Adiciona os campos ao painel
         panel.add(new JLabel("Código:"));
         panel.add(codigoField);
         panel.add(new JLabel("Custo Fixo:"));
@@ -43,9 +40,8 @@ public class CadastrarDroneCargaInanimada extends JFrame {
         panel.add(new JLabel("Proteção:"));
         panel.add(protecaoCheckBox);
 
-        // Botão de salvar
-        JButton salvarButton = new JButton("Salvar");
-        salvarButton.addActionListener(new ActionListener() {
+        JButton salvarBotao = new JButton("Salvar");
+        salvarBotao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -55,12 +51,11 @@ public class CadastrarDroneCargaInanimada extends JFrame {
                     double pesoMaximo = Double.parseDouble(pesoMaximoField.getText());
                     boolean protecao = protecaoCheckBox.isSelected();
 
-                    // Aqui você cria o objeto DroneCargaInanimada
                     DroneCargaInanimada drone = new DroneCargaInanimada(codigo, custoFixo, autonomia, pesoMaximo, protecao);
 
                     if (sistema.adicionarDrone(drone)) {
                         JOptionPane.showMessageDialog(null, "Drone cadastrado com sucesso!");
-                        dispose(); // Fecha a janela
+                        dispose(); 
                     } else {
                         JOptionPane.showMessageDialog(null, "Erro: Já existe um drone com este código.");
                     }
@@ -71,9 +66,8 @@ public class CadastrarDroneCargaInanimada extends JFrame {
             }
         });
 
-        // Layout da janela
         add(panel, BorderLayout.CENTER);
-        add(salvarButton, BorderLayout.SOUTH);
+        add(salvarBotao, BorderLayout.SOUTH);
     }
 }
 
